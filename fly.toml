@@ -1,0 +1,10 @@
+
+app = "hellofly"
+
+[build]
+  image = "flyio/hellofly:latest"
+
+[[services]]
+  internal_port = 8080
+
+...
