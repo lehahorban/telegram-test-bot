@@ -26,3 +26,16 @@
 ## Ісходний код
 
 Ісходний код проекту знаходиться у цьому репозиторії.
+
+## Створення таблиці
+
+Таблицю болу створено в програмі https://dbeaver.io/download/
+Для створення таблиці скористайтесь цим шаблоном:
+
+CREATE TABLE `users` (
+`id` int(11) NOT NULL AUTO_INCREMENT,
+`name` varchar(255) DEFAULT NULL,
+`email` varchar(255) DEFAULT NULL,
+`password` varchar(255) DEFAULT NULL,
+PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO

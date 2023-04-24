@@ -6,15 +6,19 @@
 app = "telegram-test-bot"
 primary_region = "ams"
 
-[http_service]
+[[services]]
   internal_port = 8080
-  force_https = true
-  auto_stop_machines = true
-  auto_start_machines = true
+  protocol = "tcp"
+  max_conns = 1000
+  min_conns = 1
+  processes = ["web"]
 
-[checks]
-  [checks.alive]
-    type = "tcp"
-    interval = "15s"
-    timeout = "2s"
-    grace_period = "5s"
+[[services]]
+  internal_port = 9090
+  protocol = "tcp"
+  max_conns = 1000
+  min_conns = 1
+  processes = ["worker"]
+[processes]
+  web = "command to start web process"
+  worker = "command to start worker process"
