@@ -1,10 +1,20 @@
+# fly.toml app configuration file generated for telegram-test-bot on 2023-04-24T18:25:17+03:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
 
-app = "hellofly"
+app = "telegram-test-bot"
+primary_region = "ams"
 
-[build]
-  image = "flyio/hellofly:latest"
-
-[[services]]
+[http_service]
   internal_port = 8080
+  force_https = true
+  auto_stop_machines = true
+  auto_start_machines = true
 
-...
+[checks]
+  [checks.alive]
+    type = "tcp"
+    interval = "15s"
+    timeout = "2s"
+    grace_period = "5s"
