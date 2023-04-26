@@ -1,3 +1,4 @@
+require("dotenv").config();
 const sendCryptoPrices = require("./utils/sendCryptoPrices");
 const sendTrendingPrices = require("./utils/sendTrendingPrices");
 const eventPrices = require("./utils/eventPrices.js");
@@ -8,7 +9,7 @@ const TelegramBot = require("node-telegram-bot-api");
 
 const { commands, cryptoListKeyboard } = require("./options.js");
 
-const token = "6150687227:AAENm8tJTTrcdeN26onVqkbUGQwVAbaY1gc";
+const token = process.env.TOKEN;
 const bot = new TelegramBot(token, { polling: true });
 
 bot.setMyCommands(commands);
